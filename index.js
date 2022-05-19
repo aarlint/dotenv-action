@@ -22,8 +22,6 @@ try {
     );
   }
 
-  core.setOutput('generic', 'please check for actual outputs');
-
   for (const key in variables) {
     const value = variables[key];
     core.setOutput(key, value);
