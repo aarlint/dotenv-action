@@ -2,10 +2,11 @@ const core = require('@actions/core');
 const dotenvAction = require('./dotenv_action');
 try {
   const dotenvFile = core.getInput('path');
+  const toLower = core.getInput('toLower');
   const logVariables = core.getInput('log-variables').toLowerCase() === 'true';
   const maskVariables =
     core.getInput('mask-variables').toLowerCase() === 'true';
-  const variables = dotenvAction(dotenvFile, logVariables);
+  const variables = dotenvAction(dotenvFile, logVariables, toLower);
 
   if (maskVariables) {
     for (const key in variables) {
